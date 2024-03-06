@@ -17,3 +17,8 @@ spec:
         image: openaidemoacr.azurecr.io/forecast-api:latest
         ports:
         - containerPort: 5000
+        env:
+        - name: GENERATE_ENDPOINT
+          value: "http://10.0.69.37/generate"
+        - name: GENERATE_ENDPOINT_CHAT
+          value: "http://10.0.160.68/chat"

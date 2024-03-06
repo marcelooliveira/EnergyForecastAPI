@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
+import os
 import requests
 
 app = Flask(__name__)
 
-GENERATE_ENDPOINT = "http://10.0.69.37/generate"
-GENERATE_ENDPOINT_CHAT = "http://10.0.160.68/chat"
+GENERATE_ENDPOINT = os.environ.get('GENERATE_ENDPOINT')
+GENERATE_ENDPOINT_CHAT = os.environ.get('GENERATE_ENDPOINT_CHAT')
 
 @app.route('/predict', methods=['POST'])
 def predict():
