@@ -25,7 +25,6 @@ def predict():
         max_gen_len = data.get('max_gen_len') or 1024
         temperature = data.get('temperature') or 0.0
 
-        # Call the generate endpoint with the provided DateTime
         prompt = f"""Generate a report on the electricity usage and pricing based on the following information entered by the user:
         - generation fossil brown coal/lignite: {gen_fossil_brown_coal} This column represents the amount of electricity generated from burning brown coal or lignite, measured in megawatts (MW).
         - generation fossil gas: {gen_fossil_gas} This column represents the amount of electricity generated from burning natural gas, measured in megawatts (MW).
@@ -66,18 +65,6 @@ def predict_chat():
         price = data.get('price') or 40.61
         max_gen_len = data.get('max_gen_len') or 1024
         temperature = data.get('temperature') or 0.0
-
-        # Call the generate endpoint with the provided DateTime
-        # prompt = f"""Generate a report on the electricity usage and pricing based on the following information entered by the user:
-        # - generation fossil brown coal/lignite: {gen_fossil_brown_coal} This column represents the amount of electricity generated from burning brown coal or lignite, measured in megawatts (MW).
-        # - generation fossil gas: {gen_fossil_gas} This column represents the amount of electricity generated from burning natural gas, measured in megawatts (MW).
-        # - generation fossil hard coal: {gen_fossil_hard_coal} This column represents the amount of electricity generated from burning hard coal, also known as anthracite or bituminous coal, measured in megawatts (MW).
-        # - generation fossil oil: {gen_fossil_oil} This column represents the amount of electricity generated from burning oil or petroleum, measured in megawatts (MW).
-        # - generation hydro pumped storage consumption: {gen_hydro} This column represents the amount of electricity generated from pumped storage hydroelectric power plants, measured in megawatts (MW).
-        # - generation other renewable: {gen_other_renewable} This column represents the amount of electricity generated from other renewable energy sources, such as solar, biomass, geothermal, or tidal energy, measured in megawatts (MW).
-        # - generation wind onshore: {gen_wind_onshore} This column represents the amount of electricity generated from onshore wind turbines, measured in megawatts (MW).
-        # - total load actual: {total_load_actual} This column represents the total electricity demand or consumption at a given time, measured in megawatts (MW).
-        # Based on these parameters, the price of electricity (in EUR/MWh) is: {price}."""
 
         prompt = f"""Display the following report table based on user inputs in tabular text format and write a single-paragraph report summarizing the electricity usage and forecast price:
         
