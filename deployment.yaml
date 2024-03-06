@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forecast-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forecast-api
+  template:
+    metadata:
+      labels:
+        app: forecast-api
+    spec:
+      containers:
+      - name: forecast-api
+        image: openaidemoacr.azurecr.io/forecast-api:latest
+        ports:
+        - containerPort: 5000
